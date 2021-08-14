@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Lista de Avaliações</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <h1>Lista de Avaliações</h1>
+        
+        <div>
+            <nobr>
+                <a th:href="@{/reviews/add}">Adicionar Avaliações</a> |
+                <a th:href="@{/}">Voltar para a Home</a>
+            </nobr>
+        </div>
+        <br/><br/>
+        <div>
+            <table border="1">
+                <tr>
+                    <th>Id</th>
+                    <th>Nota</th>
+                    <th>Título</th>
+                    <th>Descrição</th>
+                    <th>Editar</th>
+                </tr>
+                <tr th:each ="review : ${reviews}">
+                    <td><a th:href="@{/reviews/{reviewId}(reviewId=${review.id})}" th:utext="${review.id}">...</a></td>
+                    <td th:utext="${review.rating}">...</td>
+                    <td th:utext="${review.title}">...</td>
+                    <td th:utext="${review.description}">...</td>
+                    <td><a th:href="@{/reviews/{reviewId}/edit(reviewId=${review.id})}">Editar</a></td>
+                </tr>
+            </table>          
+        </div>
+        <br/><br/>
+        <div>
+            <nobr>
+                <span th:if="${hasPrev}"><a th:href="@{/reviews?page={prev}(prev=${prev})}">Anterior</a>&nbsp;&nbsp;&nbsp;</span> 
+                <span th:if="${hasNext}"><a th:href="@{/reviews?page={next}(next=${next})}">Próxima</a></span>
+            </nobr>
+        </div>
+    </body>
+</html>

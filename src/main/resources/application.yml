@@ -1,0 +1,22 @@
+spring:
+    application:
+        name: Review
+
+    thymeleaf:
+        cache: false
+        enabled: true 
+        prefix: 'classpath:/templates/'
+        suffix: '.html'
+
+    datasource:
+        driver-class-name: org.h2.Driver
+        url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1
+        username: sa
+        password:
+        
+server:
+    port: 8081
+
+app:
+    title: 'Avaliações'
+    menu: 'Menu'

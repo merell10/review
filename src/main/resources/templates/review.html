@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Avaliação</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <h1>Avaliação</h1>
+        <a th:href="@{/reviews}">Voltar para lista de avaliações</a>
+        <br/><br/>
+        <div th:if="${review}">
+            <table border="0">
+                <tr>
+                    <td>ID</td>
+                    <td>:</td>
+                    <td th:utext="${review.id}">...</td>          
+                </tr>
+                <tr>
+                    <td>Rating</td>
+                    <td>:</td>
+                    <td th:utext="${review.rating}">...</td>             
+                </tr>
+                <tr>
+                    <td>Título</td>
+                    <td>:</td>
+                    <td th:utext="${review.title}">...</td>              
+                </tr>
+                <tr>
+                    <td>Description</td>
+                    <td>:</td>
+                    <td th:utext="${review.description}">...</td>
+                </tr>
+            </table>
+            <br/><br/>
+            <div th:if="not ${allowDelete}">
+                <a th:href="@{/reviews/{reviewId}/edit(reviewId=${review.id})}">Editar</a> |
+                <a th:href="@{/reviews/{reviewId}/delete(reviewId=${review.id})}">Excluir</a>
+            </div>
+            <form th:if="${allowDelete}" th:action="@{/reviews/{reviewId}/delete(reviewId=${review.id})}" method="POST">
+                Excluir essa avaliação? <input type="submit" th:value="Yes" />
+            </form>
+        </div>
+        <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error" />        
+    </body>
+</html>

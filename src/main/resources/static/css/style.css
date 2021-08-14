@@ -1,0 +1,20 @@
+h1, h2 {
+    color:#5b4fff;
+}
+ 
+a {
+    color: #5b4fff;
+}
+ 
+table {
+    border-collapse: collapse;
+}
+ 
+table th, table td {
+    padding: 5px;
+}
+ 
+.error {
+    color: rgb(4, 0, 255);
+    font-style: italic;
+}
