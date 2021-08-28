@@ -9,10 +9,15 @@ spring:
         suffix: '.html'
 
     datasource:
-        driver-class-name: org.h2.Driver
-        url: jdbc:h2:mem:bootapp;DB_CLOSE_DELAY=-1
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/reviewdb
         username: root
-        password:
+        password: reviewdb
+    jpa:
+        hibernate.ddl-auto: update
+        generate-ddl: true
+        show-sql: true
+        
         
 server:
     port: 8081
