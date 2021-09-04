@@ -195,22 +195,18 @@ definitions:
     type: "object"
     required:
     - "id"
-    - "gameId"
     - "name"
     - "publishedAt"
     properties:
       id:
         type: "integer"
         format: "int64"
-      title:
+      name:
         type: "string"
-        example: "Um título de avaliação."
-      description:
+        example: "O nome do game."
+      publishedAt:
         type: "string"
-        example: "Uma descrição de avaliação."
-      rating:
-        type: "integer"
-        description: "Uma nota de avaliação."
+        description: "A data de publicação do game."
   ApiResponse:
     type: "object"
     properties:
@@ -220,4 +216,4 @@ definitions:
       type:
         type: "string"
       message:
-        type: "string"
+        type: "string
