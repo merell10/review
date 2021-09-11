@@ -25,3 +25,13 @@ server:
 app:
     title: 'Avaliações'
     menu: 'Menu'
+
+games:
+    auth-url: https://id.twitch.tv/oauth2
+    base-url: https://api.igdb.com/v4
+    client-id: 5469gb9mrc6jqir6fxdl0ktmadbxsm
+    secret: 7f9pausa2ojedok3eiivqwzq630xbs
+    grant-type: client_credentials
+    connect-timeout: 5000
+    read-timeout: 10000
+    
